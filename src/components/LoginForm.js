@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './AuthForm.css';
 
 const LoginForm = ({ onSwitchToRegister }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
         // Handle login logic here
         console.log('Logging in:', { email, password });
+        navigate('/main');
     };
 
     return (

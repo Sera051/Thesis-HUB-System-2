@@ -1,18 +1,22 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './AuthForm.css';
 
 const RegisterForm = ({ onSwitchToLogin }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
         // Handle registration logic here
-        if (password !== confirmPassword) {
-            alert("Passwords don't match!");
-            return;
-        }
+        if (password === confirmPassword) {
+            navigate('/main'); // Redirect to the main page after registration
+          } 
+        else {
+            alert('Passwords do not match!');
+          }
         console.log('Registering:', { email, password });
     };
 
