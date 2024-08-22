@@ -9,6 +9,7 @@ const MainPage = () => {
     { id: 1, name: 'John Doe', age: 28 },
     { id: 2, name: 'Jane Smith', age: 34 },
     { id: 3, name: 'Alice Johnson', age: 24 },
+    { id: 4, name: 'Ivan Reyes', age: 27 },
     // Add more data as needed
   ]);
   const [sidebarVisible, setSidebarVisible] = useState(false);
