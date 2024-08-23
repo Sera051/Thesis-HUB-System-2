@@ -12,7 +12,7 @@ const RegisterForm = ({ onSwitchToLogin }) => {
         e.preventDefault();
         // Handle registration logic here
         if (password === confirmPassword) {
-            navigate('/main'); // Redirect to the main page after registration
+            navigate('/users'); // Redirect to the main page after registration
           } 
         else {
             alert('Passwords do not match!');

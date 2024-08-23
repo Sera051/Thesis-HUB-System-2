@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './ThesesPage.css';
+import Sidebar from './Sidebar';
 
 const ThesesPage = () => {
   const [theses, setTheses] = useState([
@@ -13,6 +14,7 @@ const ThesesPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [thesisToDelete, setThesisToDelete] = useState(null);
+  const [isFormModalOpen, setIsFormModalOpen] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -20,18 +22,28 @@ const ThesesPage = () => {
   };
 
   const addThesis = () => {
+    if (!newThesis.title || !newThesis.author || !newThesis.year) {
+      alert('All fields are required.');
+      return;
+    }
     const newId = theses.length > 0 ? theses[theses.length - 1].id + 1 : 1;
     setTheses([...theses, { id: newId, ...newThesis }]);
     setNewThesis({ title: '', author: '', year: '' });
+    closeFormModal();
   };
 
   const editThesis = (id) => {
     const thesis = theses.find((thesis) => thesis.id === id);
     setNewThesis(thesis);
     setEditingId(id);
+    openFormModal();
   };
 
   const saveThesis = () => {
+    if (!newThesis.title || !newThesis.author || !newThesis.year) {
+      alert('All fields are required.');
+      return;
+    }
     setTheses(
       theses.map((thesis) =>
         thesis.id === editingId ? { ...thesis, ...newThesis } : thesis
@@ -39,6 +51,7 @@ const ThesesPage = () => {
     );
     setNewThesis({ title: '', author: '', year: '' });
     setEditingId(null);
+    closeFormModal();
   };
 
   const openModal = (id) => {
@@ -56,6 +69,16 @@ const ThesesPage = () => {
     closeModal();
   };
 
+  const openFormModal = () => {
+    setIsFormModalOpen(true);
+  };
+
+  const closeFormModal = () => {
+    setIsFormModalOpen(false);
+    setNewThesis({ title: '', author: '', year: '' });
+    setEditingId(null);
+  };
+
   const filteredTheses = theses.filter(
     (thesis) =>
       thesis.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -66,21 +89,25 @@ const ThesesPage = () => {
   return (
     <div className="container">
       <div className="admin-page">
-        <h1>Theses Compilation - Admin Panel</h1>
-        <input
-          type="text"
-          placeholder="Search theses..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="search-bar"
-        />
+        <h1>Theses - Admin Panel</h1>
+        <div className="top-bar">
+          <input
+            type="text"
+            placeholder="Search theses..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="search-bar"
+          />
+          <button onClick={openFormModal} className="upload-button">
+            <span className="plus-icon">+</span> Upload
+          </button>
+        </div>
         <table className="theses-table">
           <thead>
             <tr>
               <th>Title</th>
               <th>Author</th>
               <th>Year</th>
-              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -97,40 +124,51 @@ const ThesesPage = () => {
             ))}
           </tbody>
         </table>
-
-        <div className="thesis-form">
-          <h2>{editingId ? 'Edit Thesis' : 'Add New Thesis'}</h2>
-          <input
-            type="text"
-            name="title"
-            placeholder="Title"
-            value={newThesis.title}
-            onChange={handleInputChange}
-            className="form-input"
-          />
-          <input
-            type="text"
-            name="author"
-            placeholder="Author"
-            value={newThesis.author}
-            onChange={handleInputChange}
-            className="form-input"
-          />
-          <input
-            type="text"
-            name="year"
-            placeholder="Year"
-            value={newThesis.year}
-            onChange={handleInputChange}
-            className="form-input"
-          />
-          <button onClick={editingId ? saveThesis : addThesis} className="save-button">
-            {editingId ? 'Save Changes' : 'Add Thesis'}
-          </button>
-        </div>
       </div>
 
-      {/* Modal */}
+      {/* Form Modal */}
+      {isFormModalOpen && (
+        <div className="modal">
+          <div className="modal-content">
+            <h2>{editingId ? 'Edit Thesis' : 'Add New Thesis'}</h2>
+            <input
+              type="text"
+              name="title"
+              placeholder="Title"
+              value={newThesis.title}
+              onChange={handleInputChange}
+              className="form-input"
+              required
+            />
+            <input
+              type="text"
+              name="author"
+              placeholder="Author"
+              value={newThesis.author}
+              onChange={handleInputChange}
+              className="form-input"
+              required
+            />
+            <input
+              type="text"
+              name="year"
+              placeholder="Year"
+              value={newThesis.year}
+              onChange={handleInputChange}
+              className="form-input"
+              required
+            />
+            <div className="modal-buttons">
+              <button onClick={editingId ? saveThesis : addThesis} className="save-button">
+                {editingId ? 'Save Changes' : 'Add Thesis'}
+              </button>
+              <button onClick={closeFormModal} className="cancel-button">Cancel</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Delete Confirmation Modal */}
       {isModalOpen && (
         <div className="modal">
           <div className="modal-content">

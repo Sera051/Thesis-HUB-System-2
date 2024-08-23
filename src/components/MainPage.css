@@ -1,54 +1,90 @@
-/* src/MainPage.css */
 .main-page {
-  display: flex;
-}
-
-.content {
-  margin-left: 0;
-  padding: 20px;
-  width: 100%;
-  transition: margin-left 0.3s ease;
-}
-
-.content.sidebar-open {
-  margin-left: 250px; /* Adjust according to the width of your sidebar */
-}
-
-.menu-button {
-  position: absolute;
-  left: 2%;
-  width: 5%;
-  top: 10px;
-  padding: 1px;
-  font-size: 24px;
-  color: white;
-  border: none;
-  border-radius: 5px 5px 5px 5px;
-  cursor: pointer;
-  z-index: 1000; /* Ensure the button is above other content */
-}
-
-.menu-button:hover {
-  background-color: #17a2b8;
+    display: flex;
+  }
   
-}
-
-.search-bar {
-  margin-bottom: 20px;
-  padding: 10px;
-  font-size: 16px;
-}
-
-.data-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.data-table th, .data-table td {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
-.data-table th {
-  background-color: #f2f2f2;
-}
+  .content {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  .sidebar {
+    width: 250px; /* Adjust width as needed */
+    transition: transform 0.3s ease;
+  }
+  
+  .sidebar.hidden {
+    transform: translateX(-100%);
+  }
+  
+  .menu-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1000; /* Ensure the button is above other content */
+  }
+  
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .search-bar input[type="text"] {
+    flex-grow: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+  }
+  
+  .date-icon, .search-icon {
+    font-size: 24px;
+    color: #007bff;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .date-icon:hover, .search-icon:hover {
+    color: #0056b3;
+  }
+  
+  
+  .results {
+    margin-top: 20px;
+  }
+  
+  .result-item {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+  }
+  
+  .result-title {
+    font-size: 18px;
+    color: #1a0dab;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .result-title:hover {
+    text-decoration: underline;
+  }
+  
+  .result-authors, .result-date {
+    font-size: 14px;
+    color: #555;
+    margin-top: 5px;
+  }
+  
+  .date-icon {
+    font-size: 24px;
+    color: #007bff;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .date-icon:hover {
+    color: #0056b3;
+  }
+  
