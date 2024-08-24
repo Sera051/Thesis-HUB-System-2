@@ -4,10 +4,14 @@ import Sidebar from './Sidebar';
 
 const ThesesPage = () => {
   const [theses, setTheses] = useState([
-    { id: 1, title: 'Deep Learning in AI', author: 'John Doe', year: 2023 },
-    { id: 2, title: 'Quantum Computing Basics', author: 'Jane Smith', year: 2022 },
-    { id: 3, title: 'Blockchain Technology', author: 'Alice Johnson', year: 2021 },
-    { id: 4, title: 'Cybersecurity Trends', author: 'Ivan Reyes', year: 2023 },
+    { id: 1, title: 'TASKGROVE: A TREE-BASED PROJECT MANAGEMENT APPLICATION', author: 'Laxamana, Denzel D., et al.', year: 2023 },
+    { id: 2, title: 'COMPAWNION: A PROFILE MANAGEMENT SYSTEM with GEO-LOCATION SYSTEM for NOAH’S ARK DOG AND CAT SHELTER, MABALACAT, PAMPANGA', author: 'De Leon, Aileen P., et al.', year: 2023},
+    { id: 3, title: 'CodeQuest:When Java ProgrammingMeets Playful Learning', author: 'Alcantara, Den Dave M., et al.', year: 2023 },
+    { id: 4, title: 'HTEFinder: A Web Application Utilizing Geofencing Technology', author: 'CAguas, Angelica P., et al.', year: 2023 },
+    { id: 4, title: 'ANTABE: AN INTELLIGENT GUIDE STICK FOR VISUALLY IMPAIRED', author: 'Baquing, Gemiera M., et al.', year: 2023 },
+    { id: 4, title: 'Web-Based Equipment Maintenance Monitoring System for DHVSU Facilities', author: 'Astrologo, Neil Daryl P., et al.', year: 2023 },
+    { id: 4, title: 'MSWD Online Financial Assistance Program Management System with SMS Notification and Status Tracking', author: 'Bucalin, Christian John Y., et al.', year: 2023 },
+    { id: 4, title: 'PALE-NGKIHAN: ONLINE MARKET SYSTEM FOR ARAYAT RICE TRADERS', author: 'David, KC Glenn M., et al.', year: 2023 },
   ]);
   const [newThesis, setNewThesis] = useState({ title: '', author: '', year: '' });
   const [editingId, setEditingId] = useState(null);

@@ -6,9 +6,9 @@ import Sidebar from './Sidebar';
 const UsersPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [data, setData] = useState([
-    { id: 1, name: 'John Doe', age: 28 },
-    { id: 2, name: 'Jane Smith', age: 34 },
-    { id: 3, name: 'Alice Johnson', age: 24 },
+    { id: 1, name: 'Aldrian Regala', age: 22 },
+    { id: 2, name: 'Aaron Adrian', age: 21 },
+    { id: 3, name: 'Jericho Reyes', age: 21 },
     { id: 4, name: 'Ivan Reyes', age: 27 },
     // Add more data as needed
   ]);

@@ -5,8 +5,9 @@ import AuthPage from './components/AuthPage';
 import UsersPage from './components/UsersPage';
 import ThesesPage from './components/ThesesPage';  
 import LogsPage from './components/LogsPage';
-import ProfilePage from './components/ProfilePage';
+import ProfilePage from './components/ProfileModal';
 import MainPage from './components/MainPage';
+import LoginForm from './components/LoginForm';
 import './App.css';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/logs" element={<LogsPage/>} /> 
           <Route path="/profile" element={<ProfilePage/>} />
           <Route path="/main" element={<MainPage/>} />
+          <Route path="/login" element={<LoginForm/>} />
         </Routes>
       </div>
     </Router>

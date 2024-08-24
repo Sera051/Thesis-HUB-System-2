@@ -4,10 +4,10 @@ import Sidebar from './Sidebar';
 
 const Logs = () => {
   const [logs] = useState([
-    { id: 1, message: 'User logged in', timestamp: '2024-08-23 09:30:00' },
-    { id: 2, message: 'User updated profile', timestamp: '2024-08-23 10:00:00' },
-    { id: 3, message: 'User logged out', timestamp: '2024-08-23 10:15:00' },
-    { id: 4, message: 'Admin deleted a user', timestamp: '2024-08-23 11:00:00' },
+    { id: 1, message: 'Aldrian logged in', timestamp: '2024-08-23 09:30:00 am' },
+    { id: 2, message: 'Ivan updated profile', timestamp: '2024-08-23 10:00:00 pm' },
+    { id: 3, message: 'Jericho logged out', timestamp: '2024-08-23 10:15:00 pm' },
+    { id: 4, message: 'Admin deleted a user', timestamp: '2024-08-23 11:00:00 am' },
     // Add more logs as needed
   ]);
 
