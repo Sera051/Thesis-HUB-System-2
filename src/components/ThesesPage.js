@@ -8,10 +8,10 @@ const ThesesPage = () => {
     { id: 2, title: 'COMPAWNION: A PROFILE MANAGEMENT SYSTEM with GEO-LOCATION SYSTEM for NOAH’S ARK DOG AND CAT SHELTER, MABALACAT, PAMPANGA', author: 'De Leon, Aileen P., et al.', year: 2023},
     { id: 3, title: 'CodeQuest:When Java ProgrammingMeets Playful Learning', author: 'Alcantara, Den Dave M., et al.', year: 2023 },
     { id: 4, title: 'HTEFinder: A Web Application Utilizing Geofencing Technology', author: 'CAguas, Angelica P., et al.', year: 2023 },
-    { id: 4, title: 'ANTABE: AN INTELLIGENT GUIDE STICK FOR VISUALLY IMPAIRED', author: 'Baquing, Gemiera M., et al.', year: 2023 },
-    { id: 4, title: 'Web-Based Equipment Maintenance Monitoring System for DHVSU Facilities', author: 'Astrologo, Neil Daryl P., et al.', year: 2023 },
-    { id: 4, title: 'MSWD Online Financial Assistance Program Management System with SMS Notification and Status Tracking', author: 'Bucalin, Christian John Y., et al.', year: 2023 },
-    { id: 4, title: 'PALE-NGKIHAN: ONLINE MARKET SYSTEM FOR ARAYAT RICE TRADERS', author: 'David, KC Glenn M., et al.', year: 2023 },
+    { id: 5, title: 'ANTABE: AN INTELLIGENT GUIDE STICK FOR VISUALLY IMPAIRED', author: 'Baquing, Gemiera M., et al.', year: 2023 },
+    { id: 6, title: 'Web-Based Equipment Maintenance Monitoring System for DHVSU Facilities', author: 'Astrologo, Neil Daryl P., et al.', year: 2023 },
+    { id: 7, title: 'MSWD Online Financial Assistance Program Management System with SMS Notification and Status Tracking', author: 'Bucalin, Christian John Y., et al.', year: 2023 },
+    { id: 8, title: 'PALE-NGKIHAN: ONLINE MARKET SYSTEM FOR ARAYAT RICE TRADERS', author: 'David, KC Glenn M., et al.', year: 2023 },
   ]);
   const [newThesis, setNewThesis] = useState({ title: '', author: '', year: '' });
   const [editingId, setEditingId] = useState(null);
