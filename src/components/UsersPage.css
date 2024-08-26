@@ -16,7 +16,8 @@
 
 .menu-button {
   position: absolute;
-  left: 2%;
+  background-color: transparent;
+  left: 5px;
   width: 5%;
   top: 10px;
   padding: 1px;
@@ -26,11 +27,6 @@
   border-radius: 5px 5px 5px 5px;
   cursor: pointer;
   z-index: 1000; /* Ensure the button is above other content */
-}
-
-.menu-button:hover {
-  background-color: #17a2b8;
-  
 }
 
 .search-bar {

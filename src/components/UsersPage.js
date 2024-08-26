@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import './UsersPage.css';
 import Sidebar from './Sidebar';
+import './Sidebar.css';
 
 const UsersPage = () => {
   const [searchQuery, setSearchQuery] = useState('');

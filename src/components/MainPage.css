@@ -77,14 +77,6 @@
     transform: translateX(-100%);
   }
   
-  .menu-button {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    z-index: 1000; /* Ensure the button is above other content */
-  }
-  
-  
   .search-bar {
     display: flex;
     align-items: center;
