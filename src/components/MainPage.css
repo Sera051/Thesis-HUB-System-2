@@ -10,6 +10,13 @@ font-style: inherit;
   }
 
   /* Header Styling */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff; /* Example background color */
+    padding: 10px 20px;
+  }
   
   .logo {
     height: 50px; /* Adjust as needed */
