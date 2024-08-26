@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './AuthForm.css';
+import Footer from './Footer'; 
+import Header from './Header'
 
 const RegisterForm = ({ onSwitchToLogin }) => {
     const [email, setEmail] = useState('');
@@ -21,28 +23,56 @@ const RegisterForm = ({ onSwitchToLogin }) => {
     };
 
     return (
-        <div className="form-container">
-            <h2>Register</h2>
-            <form onSubmit={handleSubmit}>
-                <div className="input-group">
-                    <label>Email:</label>
-                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-                </div>
-                <div className="input-group">
-                    <label>Password:</label>
-                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-                </div>
-                <div className="input-group">
-                    <label>Confirm Password:</label>
-                    <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
-                </div>
-                <button type="submit">Register</button>
-            </form>
-            <p>
-                Already have an account? <span onClick={onSwitchToLogin} className="switch-link">Login</span>
-            </p>
+        <div className="App">
+      {/* Header */}
+      {/* Header Component */}
+      <Header />
+
+      {/* Main Content */}
+      <div className="main-content">
+        <div className="login-form">
+          <h2>Register</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="input-group">
+              <input 
+                type="email" 
+                placeholder="Email" 
+                value={email} 
+                onChange={(e) => setEmail(e.target.value)} 
+                required 
+              />
+            </div>
+            <div className="input-group">
+              <input 
+                type="password" 
+                placeholder="Password" 
+                value={password} 
+                onChange={(e) => setPassword(e.target.value)} 
+                required 
+              />
+            </div>
+            <div className="input-group">
+              <input 
+                type="password" 
+                placeholder="Confirm Password" 
+                value={confirmPassword} 
+                onChange={(e) => setConfirmPassword(e.target.value)} 
+                required 
+              />
+            </div>
+            <button type="submit">Register</button>
+          </form>
+          <p>
+            Already have an account? 
+            <span onClick={onSwitchToLogin} className="switch-link">Login</span>
+          </p>
         </div>
-    );
-};
+      </div>
+
+      {/* Footer Component */}
+      <Footer />
+    </div>
+  );
+}
 
 export default RegisterForm;
