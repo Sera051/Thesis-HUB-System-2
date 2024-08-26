@@ -4,6 +4,7 @@ import Date from './Date';
 import ProfileModal from './ProfileModal'; // Import the modal component
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt, faSearch, faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import Footer from './Footer';
 
 const MainPage = () => {
   const [query, setQuery] = useState('');
@@ -110,74 +111,82 @@ const MainPage = () => {
   
 
   return (
-    <div className="main-page">
-      <div className="content">
-        <header className="header">
-          <div className="logo-title">
-            <img src="/ccslogo.png" alt="Logo" className="logo" /> {/* Replace with your logo path */}
-            <h1>Thesis HUB</h1>
-          </div>
-          <div className="profile-section">
-            <FontAwesomeIcon
-              icon={faUserCircle}
-              className="profile-icon"
-              onClick={toggleProfile}
-            />
-            {isProfileOpen && (
-              <div className="profile-dropdown">
-                <button onClick={openProfileModal}>My Profile</button>
-                <a href="/login">Logout</a>
-              </div>
-            )}
-          </div>
-        </header>
-
-        <div className="search-bar">
-          <input
-            type="text"
-            placeholder="Search"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-          />
+    <div className="App">
+      <header className="header">
+        <img src="/thesishublogowhite.jpg" alt="Logo" className="logo" /> {/* Replace with your logo path */}
+        <nav className="nav-links">
+          <a href="/" className="nav-item">Home</a>
+          <a href="/about" className="nav-item">About</a>
+          <a href="/services" className="nav-item">Services</a>
+          <a href="/contact" className="nav-item">Contact</a>
+        </nav>
+        <div className="profile-section">
           <FontAwesomeIcon
-            icon={faSearch}
-            className="search-icon"
-            onClick={handleSearch}
+            icon={faUserCircle}
+            className="profile-icon"
+            onClick={toggleProfile}
           />
-          <FontAwesomeIcon
-            icon={faCalendarAlt}
-            className="date-icon"
-            onClick={openModal}
-          />
-        </div>
-
-        <div className="results">
-          <h2>Search Results</h2>
-          {filteredResults.map((result, index) => (
-            <div key={index} className="result-item">
-              <a href={result.link} className="result-title">
-                {result.title}
-              </a>
-              <p className="result-authors">{result.authors}</p>
-              <p className="result-date">{result.date}</p>
+          {isProfileOpen && (
+            <div className="profile-dropdown">
+              <button onClick={openProfileModal}>My Profile</button>
+              <a href="/login">Logout</a>
             </div>
-          ))}
+          )}
         </div>
+      </header>
+
+      <div className="main-page">
+        <div className="content">
+          <div className="search-bar">
+            <input
+              type="text"
+              placeholder="Search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
+            <FontAwesomeIcon
+              icon={faSearch}
+              className="search-icon"
+              onClick={handleSearch}
+            />
+            <FontAwesomeIcon
+              icon={faCalendarAlt}
+              className="date-icon"
+              onClick={openModal}
+            />
+          </div>
+
+          <div className="results">
+            <h2>Search Results</h2>
+            {filteredResults.map((result, index) => (
+              <div key={index} className="result-item">
+                <a href={result.link} className="result-title">
+                  {result.title}
+                </a>
+                <p className="result-authors">{result.authors}</p>
+                <p className="result-date">{result.date}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <Date
+          isOpen={isModalOpen}
+          onClose={closeModal}
+          startDate={startDate}
+          endDate={endDate}
+          setStartDate={setStartDate}
+          setEndDate={setEndDate}
+          onApply={applyDateSelection}
+        />
+
+        <ProfileModal isOpen={isProfileModalOpen} onClose={closeProfileModal} /> {/* Include the modal */}
       </div>
-
-      <Date
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        startDate={startDate}
-        endDate={endDate}
-        setStartDate={setStartDate}
-        setEndDate={setEndDate}
-        onApply={applyDateSelection}
-      />
-
-      <ProfileModal isOpen={isProfileModalOpen} onClose={closeProfileModal} /> {/* Include the modal */}
+       {/* Footer Component */}
+        <Footer />
     </div>
   );
 };
+
 
 export default MainPage;

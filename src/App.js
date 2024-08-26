@@ -22,6 +22,7 @@ function App() {
           <Route path="/profile" element={<ProfilePage/>} />
           <Route path="/main" element={<MainPage/>} />
           <Route path="/login" element={<LoginForm/>} />
+         
         </Routes>
       </div>
     </Router>

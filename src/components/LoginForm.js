@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './AuthForm.css';
+import Header from './Header';
+import Footer from './Footer'; 
 
 const LoginForm = ({ onSwitchToRegister }) => {
     const [email, setEmail] = useState('');
@@ -14,25 +16,54 @@ const LoginForm = ({ onSwitchToRegister }) => {
         navigate('/main');
     };
 
+    
+
     return (
-        <div className="form-container">
+
+        <div className="App">
+        {/* Header */}
+        {/* Header Component */}
+      <Header />
+  
+        {/* Main Content */}
+        <main className="main-content">
+          {/* Centered Login Form */}
+          <div className="login-form">
             <h2>Login</h2>
+            <p>Enter your account to continue with Thesis HUB</p>
             <form onSubmit={handleSubmit}>
-                <div className="input-group">
-                    <label>Email:</label>
-                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-                </div>
-                <div className="input-group">
-                    <label>Password:</label>
-                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-                </div>
-                <button type="submit">Login</button>
+              <div className="input-group">
+                <input
+                  type="email"
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="input-group">
+                <input
+                  type="password"
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+              </div>
+              <button type="submit">Login</button>
             </form>
             <p>
-                Don't have an account? <span onClick={onSwitchToRegister} className="switch-link">Register</span>
+              Don't have an account?{' '}
+              <span onClick={onSwitchToRegister} className="switch-link">Register</span>
             </p>
-        </div>
+          </div>
+        </main>
+  
+        {/* Footer Component */}
+        <Footer />
+      </div>
     );
-};
-
+  };
+  
+        
 export default LoginForm;
