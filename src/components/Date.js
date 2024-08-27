@@ -1,34 +1,47 @@
 import React from 'react';
 import './Date.css';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
-const DateModal = ({ isOpen, onClose, startDate, endDate, setStartDate, setEndDate, onApply }) => {
+// Date Modal Component
+const Date = ({ isOpen, onClose, startDate, endDate, setStartDate, setEndDate, onApply }) => {
   if (!isOpen) return null;
 
   return (
     <div className="modal-overlay">
       <div className="modal-content">
+        <button className="modal-close" onClick={onClose}>X</button>
         <h2>Select Date Range</h2>
-        <div className="modal-body">
-          <label>Start Date:</label>
-          <input
-            type="date"
-            value={startDate}
-            onChange={(e) => setStartDate(e.target.value)}
-          />
-          <label>End Date:</label>
-          <input
-            type="date"
-            value={endDate}
-            onChange={(e) => setEndDate(e.target.value)}
-          />
+        <div className="date-picker-container">
+          <label>
+            Start Date:
+            <DatePicker
+              selected={startDate}
+              onChange={(date) => setStartDate(date)}
+              dateFormat="MMMM yyyy"
+              showMonthYearPicker
+              placeholderText="Select month and year"
+              showYearDropdown
+              scrollableYearDropdown
+            />
+          </label>
+          <label>
+            End Date:
+            <DatePicker
+              selected={endDate}
+              onChange={(date) => setEndDate(date)}
+              dateFormat="MMMM yyyy"
+              showMonthYearPicker
+              placeholderText="Select month and year"
+              showYearDropdown
+              scrollableYearDropdown
+            />
+          </label>
         </div>
-        <div className="modal-footer">
-          <button onClick={onClose}>Cancel</button>
-          <button onClick={onApply}>Apply</button>
-        </div>
+        <button onClick={onApply}>Apply</button>
       </div>
     </div>
   );
 };
 
-export default DateModal;
+export default Date;
